@@ -2,6 +2,7 @@ use radix_fmt::radix;
 use rayon::prelude::*;
 
 fn main() {
+    let num_alive = 1;
     for num_chickens in 2..=10 {
         let total = (num_chickens as u64).pow(num_chickens as u32);
         let successes = (0..total)
@@ -17,17 +18,10 @@ fn main() {
                     counts[c.to_digit(num_chickens as u32).unwrap() as usize] += 1;
                 }
 
-                let mut alive = 0;
+                let alive = counts.iter().filter(|c| **c == 0).count();
 
-                for count in counts {
-                    if count == 0 {
-                        alive += 1;
-                    }
-                }
-
-                //println!("{} {:?}", s, counts);
-
-                if alive == 1 {
+                if alive == num_alive {
+                    //println!("{} {:?}", s, counts);
                     1
                 } else {
                     0
