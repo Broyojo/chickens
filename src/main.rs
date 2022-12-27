@@ -5,7 +5,7 @@ fn main() {
     let num_alive = 1;
     for num_chickens in 2..=10 {
         let total = (num_chickens as u64).pow(num_chickens as u32);
-        let successes = (0..total)
+        let successes: u64 = (0..total)
             .into_par_iter()
             .map(|n: u64| -> u64 {
                 let s = pad_zeros_left(radix(n, num_chickens).to_string(), num_chickens as usize);
@@ -27,7 +27,7 @@ fn main() {
                     0
                 }
             })
-            .sum::<u64>();
+            .sum();
 
         let n_gcd = gcd(successes, total);
 
