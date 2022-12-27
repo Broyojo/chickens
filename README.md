@@ -8,7 +8,7 @@ This program gives the answer to the following problem:
 The program solves this problem by bruteforcing all possible outcomes. Instead of using `for` loops to go through all possiblities, it uses numbers in different bases to represent the scenarios, exploiting the fact that computers can increment numbers quickly. It then parallelizes this with the excellent `rayon` library in the Rust Programming Language.
 
 ## Solution
-I made this project as I wanted to find the exact solution to this problem and a naive Monte-Carlo simulation only gave me an approximate answer. With this project, I was able to find the exact solution for any number of chickens, allowing me to find the analytical solution: $$P(\text{surviving chickens}=1)=\frac{n!\cdot \binom{n}{2}}{n^n}$$
+I made this project as I wanted to find the exact solution to this problem and a naive Monte-Carlo simulation only gave me an approximate answer. With this project, I was able to find the exact solution for any number of chickens, allowing me to find (and prove) the analytical solution: $$P(\text{surviving chickens}=1)=\frac{n!\cdot \binom{n}{2}}{n^n}$$
 
 ## How to Run
 By default, the program will calculate the probability for 2 chickens up to 10 chickens. To run the program, run
